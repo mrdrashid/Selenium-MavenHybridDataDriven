@@ -14,27 +14,36 @@ public class BrowserFactory {
 	static WebDriver driver;
 	
 	public static WebDriver startBrowser(String browserName, String url){
-		
-		
-		 if(browserName.equalsIgnoreCase("chrome"))
+		if(browserName.equalsIgnoreCase("firefox"))
 		{
-			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", "../WordpressDemo/drivers/geckodriver.exe");
 			
+			ProfilesIni profile = new ProfilesIni();
+			FirefoxProfile myProfile = profile.getProfile("default");
+			DesiredCapabilities dc = DesiredCapabilities.firefox();
+			dc.setCapability(FirefoxDriver.PROFILE, myProfile);
+			dc.setCapability("marionette", true);
+			
+			driver = new FirefoxDriver(dc);
+			
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		}
+		
+		else if(browserName.equalsIgnoreCase("chrome"))
+		{
+			//System.setProperty("webdriver.chrome.driver", "C:/auto2/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",".\\drivers\\chromedriver.exe");
+
 			driver = new ChromeDriver();
 		}
-		 
-		 if(browserName.equalsIgnoreCase("firefox"))
-			{
-				System.setProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
-				
-				driver = new FirefoxDriver();
-			}
 		
 		driver.get(url);
 		
 		return driver;
 	}
 	
-	
+	public void closeBrowser(){
+		driver.close();
+	}
 
 }

@@ -82,7 +82,7 @@ public void database() throws ClassNotFoundException, SQLException{
 	
 	Class.forName("com.mysql.jdbc.Driver");
 	System.out.println("driver loaded");
-	Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/selenium","root","Bangladesh123");
+	Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/Selenium","root","Belal123!");
 	System.out.println("connected to DB");
 	Statement smt =con.createStatement();
 	ResultSet rs=smt.executeQuery("select * from seleniumuser");
@@ -91,12 +91,12 @@ public void database() throws ClassNotFoundException, SQLException{
 		
 	{
 		
-		String firstname=rs.getString("firstname");
-		String emailadress=rs.getString("email");
+		String Email=rs.getString("Email");
+		String Password=rs.getString("Password");
 	
-		System.out.println(firstname);
+		System.out.println(Email);
 		
-		System.out.println(emailadress);
+		System.out.println(Password);
 
 		
 		

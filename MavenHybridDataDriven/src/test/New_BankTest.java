@@ -26,7 +26,7 @@ public class New_BankTest {
 		
 		String userdata[][]= readExcelData.getLogInDataFromExcelFile();	
 		System.out.println(userdata.length);
-		for (int j=1; j<userdata.length;j++)
+		for (int j=1; j<userdata.length;j++) 
 		{
 			username = userdata[j][0];
 			password = userdata[j][1];
@@ -52,13 +52,6 @@ public class New_BankTest {
 		driver.quit();
 	}
 }
-
-
-
-
-
-
-
 
 
 

@@ -31,7 +31,8 @@ ReadData readExcelData = new ReadData();
 	
 	public AddCrmContactTest() throws IOException{
 		
-		String userdata[][]= readExcelData.getLogInDataFromExcelFile();	
+		//String userdata[][]= readExcelData.getLogInDataFromExcelFile();	
+		String userdata[][]= readExcelData.getLogInDataFromExcelFile();
 		System.out.println(userdata.length);
 		for(int j=1; j<userdata.length;j++)
 		{

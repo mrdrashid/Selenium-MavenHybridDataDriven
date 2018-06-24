@@ -10,9 +10,9 @@ public class New_Bank {
 
 WebDriver driver;
 	
-	public New_Bank(WebDriver ldriver){
+	public New_Bank(WebDriver driver){
 		
-		this.driver=ldriver;
+		this.driver=driver;
 	}
 
 	@FindBy(how=How.ID,using="account")
@@ -37,9 +37,5 @@ WebDriver driver;
 		Balance.sendKeys(balan);
 	    submit.click();
 	
-	}
-
-	
-	
-	
+	}	
 }

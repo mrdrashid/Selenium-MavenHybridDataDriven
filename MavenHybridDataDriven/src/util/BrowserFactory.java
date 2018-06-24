@@ -10,38 +10,31 @@ import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserFactory {
-		
-static WebDriver driver;
+	
+	static WebDriver driver;
 	
 	public static WebDriver startBrowser(String browserName, String url){
 		
 		
 		 if(browserName.equalsIgnoreCase("chrome"))
 		{
-			//System.setProperty("webdriver.chrome.driver", "C:/auto1/chromedriver.exe");
-			 System.setProperty("webdriver.chrome.driver",".\\drivers\\chromedriver.exe");
-
-			 
-			// System.setProperty("webdriver.chrome.driver", "C:/Users/mrdra/git/xl_datadriven2/WordpressDemo/drivers/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 			
-			 driver = new ChromeDriver();
+			driver = new ChromeDriver();
 		}
+		 
+		 if(browserName.equalsIgnoreCase("firefox"))
+			{
+				System.setProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
+				
+				driver = new FirefoxDriver();
+			}
 		
 		driver.get(url);
 		
 		return driver;
-		
 	}
+	
+	
+
 }
-
-
-
-
-
-
-
-		
-
-		
-		
-		
